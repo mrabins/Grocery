@@ -39,7 +39,7 @@ class GroceryListTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+        
     tableView.allowsMultipleSelectionDuringEditing = false
     
     userCountBarButtonItem = UIBarButtonItem(title: "1",

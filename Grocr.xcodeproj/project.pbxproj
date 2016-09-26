@@ -154,12 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB23857B1B3DD5AB0079CD01 /* Build configuration list for PBXNativeTarget "Grocr" */;
 			buildPhases = (
-				0CD73998BB59E90D35165073 /* 📦 Check Pods Manifest.lock */,
+				0CD73998BB59E90D35165073 /* [CP] Check Pods Manifest.lock */,
 				BB2385581B3DD5AB0079CD01 /* Sources */,
 				BB2385591B3DD5AB0079CD01 /* Frameworks */,
 				BB23855A1B3DD5AB0079CD01 /* Resources */,
-				D7FC370F161CB6FFE1B4D0AA /* 📦 Embed Pods Frameworks */,
-				C16BEFDC8D37005F8AEBF97C /* 📦 Copy Pods Resources */,
+				D7FC370F161CB6FFE1B4D0AA /* [CP] Embed Pods Frameworks */,
+				C16BEFDC8D37005F8AEBF97C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,14 +228,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0CD73998BB59E90D35165073 /* 📦 Check Pods Manifest.lock */ = {
+		0CD73998BB59E90D35165073 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,14 +243,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C16BEFDC8D37005F8AEBF97C /* 📦 Copy Pods Resources */ = {
+		C16BEFDC8D37005F8AEBF97C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,14 +258,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Grocr/Pods-Grocr-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D7FC370F161CB6FFE1B4D0AA /* 📦 Embed Pods Frameworks */ = {
+		D7FC370F161CB6FFE1B4D0AA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
