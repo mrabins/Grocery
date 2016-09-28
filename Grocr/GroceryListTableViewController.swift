@@ -50,6 +50,12 @@ class GroceryListTableViewController: UITableViewController {
     navigationItem.leftBarButtonItem = userCountBarButtonItem
     
     user = User(uid: "FakeId", email: "hungry@person.food")
+    
+    ref.observe(.value, with: { snapshot in
+      print(snapshot.value)
+    })
+    
+    
   }
   
   // MARK: UITableView Delegate methods
