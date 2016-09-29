@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0407A6372F6E3D7E9CED3693 /* Pods_Grocr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C792101A80F7548DB2522F /* Pods_Grocr.framework */; };
-		131F80CE1D987CE500BDDC73 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 131F80CD1D987CE500BDDC73 /* GoogleService-Info-2.plist */; };
+		132E636D1D9C436500C82829 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132E636C1D9C436500C82829 /* GoogleService-Info.plist */; };
 		BB2385621B3DD5AB0079CD01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2385611B3DD5AB0079CD01 /* AppDelegate.swift */; };
 		BB2385641B3DD5AB0079CD01 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2385631B3DD5AB0079CD01 /* LoginViewController.swift */; };
 		BB2385671B3DD5AB0079CD01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB2385651B3DD5AB0079CD01 /* Main.storyboard */; };
@@ -22,7 +22,7 @@
 
 /* Begin PBXFileReference section */
 		09C792101A80F7548DB2522F /* Pods_Grocr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grocr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		131F80CD1D987CE500BDDC73 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info-2.plist"; path = "../GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		132E636C1D9C436500C82829 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7140A686A3CFE384D13E0517 /* Pods-Grocr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grocr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Grocr/Pods-Grocr.debug.xcconfig"; sourceTree = "<group>"; };
 		BB23855C1B3DD5AB0079CD01 /* Grocr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grocr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2385601B3DD5AB0079CD01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		BB23855F1B3DD5AB0079CD01 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				131F80CD1D987CE500BDDC73 /* GoogleService-Info-2.plist */,
+				132E636C1D9C436500C82829 /* GoogleService-Info.plist */,
 				BB2385601B3DD5AB0079CD01 /* Info.plist */,
 				BB2385851B3DD8820079CD01 /* Grocr-Bridging-Header.h */,
 			);
@@ -219,8 +219,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB2385671B3DD5AB0079CD01 /* Main.storyboard in Resources */,
+				132E636D1D9C436500C82829 /* GoogleService-Info.plist in Resources */,
 				BB23856C1B3DD5AB0079CD01 /* LaunchScreen.xib in Resources */,
-				131F80CE1D987CE500BDDC73 /* GoogleService-Info-2.plist in Resources */,
 				BB2385691B3DD5AB0079CD01 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
