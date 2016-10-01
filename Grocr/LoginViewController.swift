@@ -31,6 +31,17 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var textFieldLoginEmail: UITextField!
   @IBOutlet weak var textFieldLoginPassword: UITextField!
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+      
+      if user != nil {
+        self.performSegue(withIdentifier: self.loginToList, sender: nil)
+      }
+    }
+  }
+  
   // MARK: Actions
   @IBAction func loginDidTouch(_ sender: AnyObject) {
     performSegue(withIdentifier: loginToList, sender: nil)
@@ -44,6 +55,17 @@ class LoginViewController: UIViewController {
     let saveAction = UIAlertAction(title: "Save",
                                    style: .default) { action in
                                     
+     let emailField = alert.textFields![0]
+     let passwordField = alert.textFields![1]
+                                    
+     FIRAuth.auth()!.createUser(withEmail: emailField.text!, password: passwordField.text!) { user, error in
+                                  
+    if error == nil {
+      
+    FIRAuth.auth()!.signIn(withEmail: self.textFieldLoginEmail.text!, password: self.textFieldLoginPassword.text!)
+      
+        }
+      }
     }
     
     let cancelAction = UIAlertAction(title: "Cancel",

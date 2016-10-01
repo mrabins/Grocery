@@ -31,6 +31,7 @@ class GroceryListTableViewController: UITableViewController {
   var items: [GroceryItem] = []
   var user: User!
   var userCountBarButtonItem: UIBarButtonItem!
+  let userRef = FIRDatabase.database().reference(withPath: "online")
 
   let ref = FIRDatabase.database().reference(withPath: "grocery-items")
 
@@ -51,10 +52,36 @@ class GroceryListTableViewController: UITableViewController {
     
     user = User(uid: "FakeId", email: "hungry@person.food")
     
-    ref.observe(.value, with: { snapshot in
-      print(snapshot.value)
+    ref.queryOrdered(byChild: "completed").observe(.value, with: { snapshot in
+      var newItems: [GroceryItem] = []
+    
+      for item in snapshot.children {
+        let groceryItem = GroceryItem(snapshot: item as! FIRDataSnapshot)
+        newItems.append(groceryItem)
+        
+        self.userRef.observe(.value, with: { snapshot in
+          if snapshot.exists() {
+            self.userCountBarButtonItem?.title = snapshot.childrenCount.description
+          } else {
+            self.userCountBarButtonItem?.title = "0"
+          }
+          
+        })
+        
+      }
+      self.items = newItems
+      self.tableView.reloadData()
     })
     
+    FIRAuth.auth()!.addStateDidChangeListener { auth, user in
+      let currentUserRef = self.userRef.child(self.user.uid)
+      currentUserRef.setValue(self.user.email)
+      currentUserRef.onDisconnectRemoveValue()
+      
+      guard let user = user else { return }
+      self.user = User(authData: user)
+      
+    }
     
   }
   
@@ -82,19 +109,17 @@ class GroceryListTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      items.remove(at: indexPath.row)
-      tableView.reloadData()
+      let groceryItem = items[indexPath.row]
+      groceryItem.ref?.removeValue()
     }
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let cell = tableView.cellForRow(at: indexPath) else { return }
-    var groceryItem = items[indexPath.row]
-    let toggledCompletion = !groceryItem.completed
-    
-    toggleCellCheckbox(cell, isCompleted: toggledCompletion)
-    groceryItem.completed = toggledCompletion
-    tableView.reloadData()
+    guard  let cell = tableView.cellForRow(at: indexPath) else { return }
+    let groceryItem = items[indexPath.row]
+    let toggleCompletion = !groceryItem.completed
+    toggleCellCheckbox(cell, isCompleted: toggleCompletion)
+    groceryItem.ref?.updateChildValues(["completed" : toggleCompletion])
   }
   
   func toggleCellCheckbox(_ cell: UITableViewCell, isCompleted: Bool) {
